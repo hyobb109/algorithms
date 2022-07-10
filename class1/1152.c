@@ -8,6 +8,7 @@ int main()
     int count = 1;
     scanf("%[^\n]s", s);
     int n = strlen(s);
+    // 공백 하나만 입력, 엔터만 입력 시 예외 처리
     if ((n == 1 && s[0] == ' ') || n == 0)
     {
         printf("%d", 0);
