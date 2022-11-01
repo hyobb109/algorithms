@@ -14,7 +14,8 @@ int main()
     physical *list = malloc(sizeof(int) * n);
     // int *count 로 하니까 런타임에러(StoreToNullPointer) 발생해서 배열로 바꿔줌
     // 이유는..??
-    int count[50];
+    //int count[50];
+    int *count;
     for (int i = 0; i < n; i++)
     {
         scanf("%d %d", &list[i].x, &list[i].y);
