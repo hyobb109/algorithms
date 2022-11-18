@@ -6,8 +6,8 @@ let input = fs.readFileSync('sample.txt').toString().split(' ');
 let set = [1, 1, 2, 2, 2, 8];
 for (let i=0; i < 6; i++){
   let res = set[i] - Number(input[i]);
-  if (i == 5)
+  if (i == 5) // 마지막은 개행 넣음
      console.log(res); 
-  else
+  else // 개행 없이 공백붙여서 출력
     process.stdout.write(res + ' ');
   }
