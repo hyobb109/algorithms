@@ -1,3 +1,4 @@
 *.exe
 swp.c
 .DS_Store
+a.out
