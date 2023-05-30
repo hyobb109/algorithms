@@ -2,8 +2,8 @@
 let input = require('fs').readFileSync('test.txt').toString().trim().split('\n');
 const t = +input.shift();
 
-function getDistance(currX, curry, dest) {
-	return Math.abs(currX - dest[0]) + Math.abs(curry - dest[1]);
+function getDistance(currX, currY, dest) {
+	return Math.abs(currX - dest[0]) + Math.abs(currY - dest[1]);
 }
 
 function bfs(n, coord) {
