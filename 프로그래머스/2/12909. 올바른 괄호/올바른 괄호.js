@@ -8,6 +8,5 @@ function solution(s){
             open -= 1;
         }
     }
-    if (open) return false;
-    return true;
+    return open ? false : true
 }
