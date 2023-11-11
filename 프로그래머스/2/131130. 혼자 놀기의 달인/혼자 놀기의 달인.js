@@ -1,5 +1,5 @@
 function solution(cards) {
-    let score = [0, 0];
+    let score = [];
     let prev = new Set();
     for (let i = 0; i < cards.length; ++i) {
         let curr = cards[i];
