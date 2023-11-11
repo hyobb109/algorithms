@@ -1,5 +1,5 @@
 function solution(cards) {
-    let score = [];
+    let score = [0];
     let prev = new Set();
     for (let i = 0; i < cards.length; ++i) {
         let curr = cards[i];
@@ -13,5 +13,5 @@ function solution(cards) {
         score.push(set.size);
     }
     score.sort((a, b) => b - a);
-    return score[1] ? score[0] * score[1] : 0
+    return score[0] * score[1];
 }
