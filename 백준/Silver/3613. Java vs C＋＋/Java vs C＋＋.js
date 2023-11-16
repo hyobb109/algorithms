@@ -1,4 +1,5 @@
-let input = require("fs").readFileSync('/dev/stdin').toString().trim();
+let input = require("fs").readFileSync("/dev/stdin").toString().trim();
+
 function convertName(str) {
   // _로 시작하거나 끝나면 에러
   if (str.startsWith("_") || str.endsWith("_")) return "Error!";
@@ -8,21 +9,20 @@ function convertName(str) {
     if (str.toLowerCase() !== str) return "Error!";
     let words = str.split("_");
     if (words.includes("")) return "Error!";
-    let java = words.map((word, idx) => {
-      // word.at(0) / word[0] 은 TypeError 발생함. 왜지??
-      return idx === 0 ? word : word[0].toUpperCase() + word.slice(1);
-    });
-    return java.join("");
+    for (let i = 1; i < words.length; ++i) {
+      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+    }
+    return words.join("");
   }
   // Java to C++
-  let cpp = str[0];
+  let res = str[0];
   // 대문자로 시작하면 에러
-  if (cpp.toLowerCase() !== cpp) return "Error!";
+  if (res.toLowerCase() !== res) return "Error!";
   for (let i = 1; i < str.length; ++i) {
     str[i].toLowerCase() !== str[i]
-      ? (cpp += "_" + str[i].toLowerCase())
-      : (cpp += str[i]);
+      ? (res += "_" + str[i].toLowerCase())
+      : (res += str[i]);
   }
-  return cpp;
+  return res;
 }
 console.log(convertName(input));
