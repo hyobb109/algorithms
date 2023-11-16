@@ -10,7 +10,7 @@ function convertName(str) {
     if (words.includes("")) return "Error!";
     let java = words.map((word, idx) => {
       // word.at(0) / word[0] 은 TypeError 발생함. 왜지??
-      return idx === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1);
+      return idx === 0 ? word : word[0].toUpperCase() + word.slice(1);
     });
     return java.join("");
   }
