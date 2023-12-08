@@ -5,20 +5,16 @@ const input = require('fs')
   .split('\n');
 
 let arr = input.map((el) => el.split(' '));
-let res = '';
+let dp = new Array(13);
+dp[0] = '-';
 
-function divide(len) {
-  if (len === 1) {
-    res += '-';
-    return;
-  }
-  divide(len / 3);
-  res += ' '.repeat(len / 3);
-  divide(len / 3);
+for (let i = 1; i < 13; i++) {
+  dp[i] = dp[i - 1] + ' '.repeat(Math.pow(3, i - 1)) + dp[i - 1];
 }
 
+let res = '';
 arr.forEach((n, idx) => {
-  divide(Math.pow(3, +n));
+  res += dp[+n];
   if (idx < arr.length - 1) res += '\n';
 });
 
