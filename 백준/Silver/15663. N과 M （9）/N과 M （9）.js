@@ -11,7 +11,7 @@ const numbers = input[1]
   .sort((a, b) => a - b);
 
 let res = '';
-let comb = [];
+let comb = new Array(M);
 let used = new Array(N).fill(false);
 function getComb(n) {
   if (n === M) {
@@ -22,11 +22,10 @@ function getComb(n) {
   for (let i = 0; i < N; i++) {
     const k = numbers[i];
     if (used[i] || tmp === k) continue;
-    comb.push(k);
+    comb[n] = k;
     tmp = k;
     used[i] = true;
     getComb(n + 1);
-    comb.pop();
     used[i] = false;
   }
 }
