@@ -10,18 +10,20 @@ const numbers = input[1]
   .map(Number)
   .sort((a, b) => a - b);
 
-let res = [];
+let res = '';
 let comb = [];
 let used = new Array(N).fill(false);
 function getComb(n) {
   if (n === M) {
-    if (!res.includes(comb.join(' '))) res.push(comb.join(' '));
+    res += comb.join(' ') + '\n';
     return;
   }
+  let tmp = 0;
   for (let i = 0; i < N; i++) {
     const k = numbers[i];
-    if (used[i]) continue;
+    if (used[i] || tmp === k) continue;
     comb.push(k);
+    tmp = k;
     used[i] = true;
     getComb(n + 1);
     comb.pop();
@@ -30,4 +32,4 @@ function getComb(n) {
 }
 
 getComb(0);
-console.log(res.join('\n'));
+console.log(res);
