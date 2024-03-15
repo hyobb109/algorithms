@@ -17,9 +17,6 @@ function solution(genres, plays) {
         trackMap.set(genre, trackList);
     }
     let arr = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
-    let answer = [];
-    arr.forEach((genre) => {
-        answer = answer.concat(trackMap.get(genre[0]));
-    });
+    let answer = arr.map((genre) => trackMap.get(genre[0])).flat();
     return answer;
 }
