@@ -1,6 +1,6 @@
 const S = require('fs').readFileSync('/dev/stdin').toString().trim();
 
-let ones = S.split('0').filter(Boolean).length;
-let zeros = S.split('1').filter(Boolean).length;
+const ONES = S.split('0').filter(Boolean).length;
+const ZEROS = S.split('1').filter(Boolean).length;
 
-ones < zeros ? console.log(ones) : console.log(zeros);
+console.log(Math.min(ONES, ZEROS));
