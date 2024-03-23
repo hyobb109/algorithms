@@ -6,16 +6,8 @@ let [n, ...sn] = require('fs')
 
 const compare = (a, b) => {
   if (a.length !== b.length) return a.length - b.length;
-  let sumA = a
-    .split('')
-    .filter((c) => !isNaN(c))
-    .map(Number)
-    .reduce((acc, curr) => acc + curr, 0);
-  let sumB = b
-    .split('')
-    .filter((c) => !isNaN(c))
-    .map(Number)
-    .reduce((acc, curr) => acc + curr, 0);
+  let sumA = a.split('').reduce((acc, curr) => acc + (Number(curr) | 0), 0);
+  let sumB = b.split('').reduce((acc, curr) => acc + (Number(curr) | 0), 0);
   if (sumA !== sumB) return sumA - sumB;
   if (a < b) return -1;
   if (a > b) return 1;
