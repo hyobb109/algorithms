@@ -1,8 +1,8 @@
 function solution(n) {
     if (n === 1) return 1;
-    let answer = 0;
+    let answer = 1;
     let mid = parseInt(n / 2);
-    for (let i = 1; i < mid; i++) {
+    for (let i = 1; i <= mid; i++) {
         let start = i;
         let val = start;
         while (val < n) {
@@ -10,6 +10,5 @@ function solution(n) {
         }
         if (val == n) ++answer;
     }
-    answer += n % 2 == 1 ? 2 : 1;
     return answer;
 }
