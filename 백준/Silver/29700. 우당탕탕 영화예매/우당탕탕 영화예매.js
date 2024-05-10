@@ -5,17 +5,11 @@ const [n, ...input] = require('fs')
   .split('\n');
 
 const K = +n.split(' ')[2];
-const seatsToBook = '0'.repeat(K);
-const seats = input
-  .filter((row) => row.includes(seatsToBook))
-  .map((row) => row.split('1').filter((el) => el.length >= K));
-
 let cnt = 0;
-seats.forEach((row) => row.forEach(countSeats));
-
-function countSeats(row) {
-  if (row.length > K) for (let i = 0; row.length - i >= K; i++) ++cnt;
-  else ++cnt;
-}
-
+input.forEach((row) => {
+  const available = row.split('1');
+  available.forEach((seats) => {
+    if (seats.length >= K) cnt += seats.length - K + 1;
+  });
+});
 console.log(cnt);
