@@ -28,7 +28,6 @@ function solution(fees, records) {
             paymentMap.set(carNum, {inTime: time, totalMin: 0});
         }
     });
-    console.log(paymentMap);
     for (const [carNum, data] of paymentMap) {
         const {inTime, totalMin} = data;
         const totalFee = inTime ? getTotalFee(totalMin + getTimeDiff(inTime, '23:59')) : getTotalFee(totalMin);
