@@ -7,5 +7,5 @@ for digit in num:
     stack.pop()
     K -= 1
   stack.append(int(digit))
-total = len(stack)
-print(''.join(map(str, stack[:total-K])))
+if K > 0: stack = stack[:-K]
+print(''.join(map(str, stack)))
